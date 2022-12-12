@@ -86,7 +86,7 @@ const MainView = (props) => {
         </ul>
       </div>
 
-      {props.items && props.items.length > 0 ? (
+      {((props.items && props.items.length > 0) || !props.searchTerm) ? (
         <ItemList
           pager={props.pager}
           items={props.items}
