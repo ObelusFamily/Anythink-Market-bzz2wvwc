@@ -27,6 +27,7 @@ const Banner = ({onSearchUpdate}) => {
             onChange={(e) => setSearchParam(e.target.value)}
             value={searchParam}
             placeholder="What is it that you truly desire?"
+            id="search-box"
           />
           &nbsp;
           <span> the cool stuff.</span>
