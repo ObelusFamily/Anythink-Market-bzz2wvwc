@@ -15,10 +15,13 @@ const Banner = ({ onSearchUpdate }) => {
     );
   }, [onSearchUpdate, searchParam]);
 
-  const onGetClick = useCallback((e) => {
-    e.preventDefault();
-    setShowSearch(true);
-  }, [setShowSearch]);
+  const onGetClick = useCallback(
+    (e) => {
+      e.preventDefault();
+      setShowSearch(true);
+    },
+    [setShowSearch]
+  );
 
   return (
     <div className="banner text-white">
@@ -26,10 +29,12 @@ const Banner = ({ onSearchUpdate }) => {
         <img src={logo} alt="banner" />
         <div>
           <span>A place to </span>
-          <span id="get-part" onClick={onGetClick}>get</span>
+          <span id="get-part" onClick={onGetClick}>
+            get
+          </span>
           &nbsp;
           <input
-            style={{display: showSearch ? "inline-block" : "none"}}
+            style={{ display: showSearch ? "inline-block" : "none" }}
             type="text"
             onChange={(e) => setSearchParam(e.target.value)}
             value={searchParam}
