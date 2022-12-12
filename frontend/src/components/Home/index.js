@@ -8,7 +8,7 @@ import {
   HOME_PAGE_LOADED,
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER,
-  SEARCH_TEXT_UPDATED
+  SEARCH_TEXT_UPDATED,
 } from "../../constants/actionTypes";
 
 const Promise = global.Promise;

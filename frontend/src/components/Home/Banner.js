@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import logo from "../../imgs/logo.png";
 import agent from "../../agent";
 
-const Banner = ({onSearchUpdate}) => {
+const Banner = ({ onSearchUpdate }) => {
   const [searchParam, setSearchParam] = useState("");
 
   useEffect(() => {
-    const param = (searchParam.length >= 3) ? searchParam : "";
+    const param = searchParam.length >= 3 ? searchParam : "";
     onSearchUpdate(
       param,
       (page) => agent.Items.byTitle(param, page),
-      agent.Items.byTitle(param),
+      agent.Items.byTitle(param)
     );
   }, [onSearchUpdate, searchParam]);
 
@@ -22,7 +22,7 @@ const Banner = ({onSearchUpdate}) => {
           <span>A place to </span>
           <span id="get-part">get</span>
           &nbsp;
-          <input 
+          <input
             type="text"
             onChange={(e) => setSearchParam(e.target.value)}
             value={searchParam}
