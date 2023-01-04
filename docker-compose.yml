@@ -44,9 +44,16 @@ services:
     logging:
       driver: none
     volumes:
-      - ~/mongo/data:/data/db
+      - mongo-data:/data/db
     ports:
       - '27017:27017'
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb-node
 
   anythink-ack:
     build: ./frontend
@@ -57,3 +64,19 @@ services:
       - ./:/usr/src/
     depends_on:
       - "anythink-frontend-react" 
+<<<<<<< Updated upstream
+=======
+
+  event-watcher:
+    image: michaelirwin244/wilco-docker-watcher
+    volumes:
+      - .wilco:/etc/wilco/.wilco
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      WILCO_ID_FILE: /etc/wilco/.wilco
+    depends_on:
+      - anythink-ack
+
+volumes:
+  mongo-data:
+>>>>>>> Stashed changes
