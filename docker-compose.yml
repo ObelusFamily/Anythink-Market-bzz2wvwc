@@ -57,3 +57,13 @@ services:
       - ./:/usr/src/
     depends_on:
       - "anythink-frontend-react" 
+
+  event-watcher:
+    image: michaelirwin244/wilco-docker-watcher
+    volumes:
+      - .wilco:/etc/wilco/.wilco
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      WILCO_ID_FILE: /etc/wilco/.wilco
+    depends_on:
+      - anythink-ack
